@@ -100,7 +100,7 @@ export const Field = () => {
           if (
             (clientY > hero.y && hero.vy > 0)
             || (clientY < hero.y && hero.vy < 0)
-            && (Math.abs(clientY - hero.y) >= hero.radius - Math.abs(hero.vy))
+            && (Math.abs(clientY - hero.y) >= hero.radius - Math.abs(hero.vy) - 2)
           ) {
             hero.vy = -hero.vy
           }
@@ -139,6 +139,10 @@ export const Field = () => {
 
   const toggleEditMode = () => {
     isEditModeRef.current = !isEditModeRef.current
+  }
+
+  const handleMouseOut = () => {
+    clientCoordinatesRef.current = {x: 0, y: 0}
   }
 
   const createShootingInterval = (hero: Hero, shootingSpeedDivider: number = 1) => {
@@ -181,6 +185,7 @@ export const Field = () => {
           ref={canvasRef}
           className={styles.field}
           onClick={handleClick}
+          onMouseOut={handleMouseOut}
           onMouseMove={event => {
             handleMouseMove({
               canvas: canvasRef.current,
