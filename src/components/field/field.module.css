@@ -1,0 +1,20 @@
+.fieldContainer {
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    height: 100vh;
+    outline: none;
+    flex-wrap: wrap;
+}
+
+.field {
+    outline: 2px solid black;
+}
+
+.rules {
+    line-height: 1rem;
+    width: 100%;
+    text-align: center;
+}
